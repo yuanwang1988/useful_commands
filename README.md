@@ -6,7 +6,7 @@ The following instructions is needed to allow the Colab to connect to a docker b
 
 **Step 1:** Run the following command in terminal
 ```console
-docker run --gpus all -it -p 8888:8888 tensorflow/tensorflow:latest-gpu-jupyter jupyter notebook --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.allow_origin='https://colab.research.google.com'
+docker run --name tf --volume source=tf,target=/tf --gpus all -it -p 8888:8888 tensorflow/tensorflow:latest-gpu-jupyter jupyter notebook --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root --NotebookApp.allow_origin='https://colab.research.google.com'
 ```
 
 **Step 2:** In Colab, connect to local run time. Copy the URL from terminal. Replace IP address with ```localhost```.
